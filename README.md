@@ -1,38 +1,38 @@
-# AI-Powered-Smart-Healthcare-diagnostic-
-BTech 8th Sem Major Project by Divyansh Shrivastava
-/**
- * Academic Provenance & Regulatory Compliance Middleware
- * Injects non-repudiation headers to link data streams to the author.
- * Author: Divyansh Shrivastava (B.Tech CSE Final Sem Evaluation)
- */
+# HealthSync: AI-Powered Smart Healthcare Diagnostic & Remote Patient Monitoring System
 
-const verifyAcademicProvenance = (req, res, next) => {
-    try {
-        const deploymentMeta = {
-            projectIdentifier: "HealthSync Architecture Framework Core v2.1.0",
-            developerSignature: "Divyansh Shrivastava",
-            academicTrackIndex: "B.Tech Final Year Major Project Evaluation Ledger",
-            engineeringDepartment: "Computer Science & Engineering (CSE)",
-            complianceClassification: "MIT Open-Source Academic Evaluation License Matrix"
-        };
-   // Injecting persistent tracking parameters into the outgoing HTTP Stream Headers
-        res.setHeader("X-Project-Developer-Signature", deploymentMeta.developerSignature);
-        res.setHeader("X-Academic-Classification-Index", deploymentMeta.academicTrackIndex);
-        res.setHeader("X-System-Compliance-Framework", deploymentMeta.complianceClassification);
-        res.setHeader("X-Engineering-Domain", deploymentMeta.engineeringDepartment);
-   // Appending validated authentication payload context block
-        req.provenanceMatrix = {
-            isAuthorizedAcademicClaim: true,
-            cryptographicChecksumSign: "SHA256-E97B8811ACDEF7319C0982264B014F",
-            activeValidationEpoch: Date.now()
-        };
-   next();
-    } catch (middlewarePipelineException) {
-        return res.status(500).json({
-            status: "PROVENANCE_INJECTOR_CRITICAL_BREAKDOWN",
-            error: middlewarePipelineException.message
-        });
-    }
-};
+## 🎓 B.Tech 8th Semester Major Project Submission
+* **Project Title:** AI-Driven Remote Health Monitoring & Diagnostic System
+* **Student Name:** Divyansh Shrivastava
+* **Department:** Computer Science & Engineering (CSE)
+* **Batch:** 2022 - 2026
+* **Project Type:** Full-Stack Web Application + Advanced Machine Learning Core
+* **Academic Year:** 2026
 
-module.exports = { verifyAcademicProvenance };
+---
+
+## 🛑 1. Introduction & Problem Statement
+The modern healthcare sector faces severe operational constraints due to skewed doctor-to-patient ratios, the absence of automated continuous tracking mechanisms, and latency in critical disease diagnosis. 
+
+**HealthSync** is an architectural framework designed to bridge these infrastructure gaps. It operates as an enterprise-grade, automated remote health monitoring and predictive diagnostic ecosystem. The system continuously ingests real-time physiological streaming data from patients, routes it through multi-threaded data validation layers, applies Machine Learning pipelines to classify clinical health risks, and visualizes live patient parameters on an intuitive triage interface designed for medical practitioners.
+
+### Key Industry Challenges Solved:
+* **Mitigation of Manual Monitoring Delays:** Automates immediate critical condition alerts through non-blocking asynchronous data validation pipelines, removing human oversight latencies.
+* **Overcoming Geographical Barriers:** Enables patients in remote areas or home isolation to receive real-time clinical evaluation from specialized doctors without physical travel.
+* **Data Unification & Decoupled Architecture:** Merges fragmented vitals into a structured, unified backend system, preventing data silos through isolated microservices.
+
+---
+
+## 🎯 2. Proposed System Architecture & Flow
+
+The system is engineered using a decoupled **Microservices Architecture Pattern**. This ensures high fault tolerance, horizontal scaling capabilities, and absolute isolation of the heavy Machine Learning inference workloads from the main transactional backend.
+
+```text
++-------------------+      (REST APIs)      +--------------------+
+|  React Dashboard  | <===================> | Node.js Backend API|
++-------------------+   (Secure WebSockets) +---------+----------+
+                                                      |
+                                                      | (Async IPC Streams)
+                                                      ▼
+                                            +--------------------+
+                                            | Python FastAPI ML  |
+                                            +--------------------+
